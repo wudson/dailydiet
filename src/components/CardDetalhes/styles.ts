@@ -10,6 +10,7 @@ export const Container = styled.View`
     background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
     border-radius: 8px;
     padding: 20px 16px;
+    margin-bottom: 32px;
 `;
 
 export const ContainerIcon = styled.TouchableOpacity`
