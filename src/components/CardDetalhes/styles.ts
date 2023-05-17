@@ -1,13 +1,22 @@
 import { ArrowUpRight } from "phosphor-react-native";
 import styled from "styled-components/native";
+import {MaterialIcons} from '@expo/vector-icons'
 
-export const Container = styled.View`
+type Props = {
+    titulo: number;
+}
+
+export const Container = styled.View <Props>`
     width: 100%;
     align-items:center;
     justify-content: center;
     flex-direction: row;
     height: 102px;
-    background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+    background-color: 
+        ${({theme, titulo}) => 
+            titulo > 50 
+                ? theme.COLORS.GREEN_LIGHT
+                : theme.COLORS.RED_LIGHT};
     border-radius: 8px;
     padding: 20px 16px;
     margin-bottom: 32px;
@@ -19,7 +28,9 @@ export const ContainerIcon = styled.TouchableOpacity`
     right: 8px;
 `;
 
-export const Icon = styled(ArrowUpRight).attrs(({theme}) => ({
-    color: theme.COLORS.GREEN_DARK,
+export const Icon = styled(MaterialIcons).attrs<Props>(({theme, titulo}) => ({
+    color: titulo > 50 
+        ? theme.COLORS.GREEN_DARK
+        : theme.COLORS.RED_DARK,
     size: 24
 }))``;

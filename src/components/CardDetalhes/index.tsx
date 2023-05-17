@@ -1,15 +1,20 @@
 import { Titulos } from "../Titulos";
 import { Container, ContainerIcon, Icon } from "./styles";
 
-export function CardDetalhes(){
+type Props = {
+    titulo: number;
+    subtitulo: string;
+};
+
+export function CardDetalhes({titulo, subtitulo}: Props){
     return(
-        <Container>
+        <Container titulo={titulo}>
             <ContainerIcon>
-                <Icon/>
+                <Icon name="north-east" titulo={titulo}/>
             </ContainerIcon>
             <Titulos 
-                titulo={"90,86"} 
-                subtitulo={"das refeições dentro da dieta"}
+                titulo={`${titulo}%`} 
+                subtitulo={subtitulo}
             />
         </Container>
     )
